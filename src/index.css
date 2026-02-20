@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* FIXED: Remove conflicting animations */
+/* .animated-text and .animate-slide were causing conflicts */
+
+/* Ensure smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for modal */
+.modal-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-scroll::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.modal-scroll::-webkit-scrollbar-thumb {
+  background: #FFB400;
+  border-radius: 10px;
+}
+
+.modal-scroll::-webkit-scrollbar-thumb:hover {
+  background: #FF8C00;
+}
+
+.animate-on-scroll {
+  will-change: transform, opacity;
+}
+
+/* Prevent flash of unstyled content */
+@media (prefers-reduced-motion: no-preference) {
+  .animate-on-scroll {
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+}
